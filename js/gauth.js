@@ -214,7 +214,7 @@
                 var key = keyUtilities.generate(account.secret);
 
                 account.key = key;
-                req_data.push(account);
+                req_data.push({'name':account.name,'key':key});
 
                 // Construct HTML
                 var detLink = $('<h3>' + key + '</h3><p>' + account.name + '</p>');
