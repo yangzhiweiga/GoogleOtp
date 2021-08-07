@@ -213,14 +213,6 @@
             $.each(list, function (index, account) {
                 var key = keyUtilities.generate(account.secret);
 
-                // console.log(key);
-                // //下载到本地
-                // account.key = key;
-                // // var accounts = 'name:'+account.name+";secret:"+key;
-                // var accounts = JSON.stringify(account);
-                // console.log(account);
-                // var blob = new Blob([accounts], {type: 'text/plain;charset=utf-8'});
-                // saveAs(blob, 'account.json');
                 account.key = key;
                 req_data.push(req_data);
 
