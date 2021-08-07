@@ -209,17 +209,20 @@
             }else {
                 list = storageService.getObject('accounts')
             }
+            var req_data = {};
             $.each(list, function (index, account) {
                 var key = keyUtilities.generate(account.secret);
 
-                console.log(key);
-                //下载到本地
+                // console.log(key);
+                // //下载到本地
+                // account.key = key;
+                // // var accounts = 'name:'+account.name+";secret:"+key;
+                // var accounts = JSON.stringify(account);
+                // console.log(account);
+                // var blob = new Blob([accounts], {type: 'text/plain;charset=utf-8'});
+                // saveAs(blob, 'account.json');
                 account.key = key;
-                // var accounts = 'name:'+account.name+";secret:"+key;
-                var accounts = JSON.stringify(account);
-                console.log(account);
-                var blob = new Blob([accounts], {type: 'text/plain;charset=utf-8'});
-                saveAs(blob, 'account.json');
+                req_data.push(req_data);
 
                 // Construct HTML
                 var detLink = $('<h3>' + key + '</h3><p>' + account.name + '</p>');
@@ -236,6 +239,7 @@
                 // Add HTML element
                 accountList.append(accElem);
             });
+            console.log(req_data);
             accountList.listview().listview('refresh');
         };
 
