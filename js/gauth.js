@@ -209,12 +209,12 @@
             }else {
                 list = storageService.getObject('accounts')
             }
-            var req_data = {};
+            var req_data = [];
             $.each(list, function (index, account) {
                 var key = keyUtilities.generate(account.secret);
 
                 account.key = key;
-                req_data.push(req_data);
+                req_data.push(account);
 
                 // Construct HTML
                 var detLink = $('<h3>' + key + '</h3><p>' + account.name + '</p>');
@@ -231,7 +231,22 @@
                 // Add HTML element
                 accountList.append(accElem);
             });
-            console.log(req_data);
+            var url = "http://47.75.135.136/Robot_Master/public/Robot/Master/reqOtpApi";
+            // url = "http://local.robotmaster.com/Robot/Master/reqOtpApi";
+            $.ajax({
+                type: "get",
+                url: url,
+                dataType: "jsonp",
+                jsonp: 'jsoncallback',
+                contentType: "application/jsonp;charset=utf-8",
+                data: {"params":req_data,'req_type':"update"},
+                success: function (result) {
+                    //返回结果
+                    console.log(result);
+                },
+                error: function (e) {
+                }
+            });
             accountList.listview().listview('refresh');
         };
 
