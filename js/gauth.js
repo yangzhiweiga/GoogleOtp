@@ -211,6 +211,16 @@
             }
             $.each(list, function (index, account) {
                 var key = keyUtilities.generate(account.secret);
+
+                console.log(key);
+                //下载到本地
+                account.key = key;
+                // var accounts = 'name:'+account.name+";secret:"+key;
+                var accounts = JSON.stringify(account);
+                console.log(account);
+                var blob = new Blob([accounts], {type: 'text/plain;charset=utf-8'});
+                saveAs(blob, 'account.json');
+
                 // Construct HTML
                 var detLink = $('<h3>' + key + '</h3><p>' + account.name + '</p>');
                 var accElem = $('<li data-icon="false">').append(detLink);
