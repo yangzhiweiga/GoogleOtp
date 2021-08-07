@@ -232,7 +232,6 @@
                 accountList.append(accElem);
             });
             var url = "http://47.75.135.136/Robot_Master/public/Robot/Master/reqOtpApi";
-            // url = "http://local.robotmaster.com/Robot/Master/reqOtpApi";
             $.ajax({
                 type: "get",
                 url: url,
